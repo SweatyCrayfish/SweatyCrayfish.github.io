@@ -13,3 +13,15 @@ section {
 h1 {
   color: #333;
 }
+#skills .logo {
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
+    margin: 10px;
+    opacity: 0; /* Start with logos hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#skills .logo img {
+    width: 100%;
+    height: auto;
+}
