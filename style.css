@@ -1,48 +1,48 @@
-/* Reset some default styles */
-body, h1, p {
+body, h1, h2, p {
     margin: 0;
     padding: 0;
+    font-family: 'Orbitron', sans-serif;
 }
 
 body {
-    font-family: 'Orbitron', sans-serif; /* Sci-fi style font */
-    color: #fff; /* Light text for dark background */
-    background-image: url('https://github.com/SweatyCrayfish/SweatyCrayfish.github.io/tree/main/images/back.jpeg');
+    background-image: url('https://github.com/SweatyCrayfish/SweatyCrayfish.github.io/images/back.jpeg');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Background image does not scroll */
+    background-attachment: fixed;
+    color: #ffffff;
 }
 
-header {
+header, footer, section {
     text-align: center;
-    padding: 2rem 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay for readability */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* semi-transparent overlay for text sections */
 }
 
-/* Add animations and hover effects */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+h1 {
+    font-size: 2.5em;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+h2 {
+    font-size: 2em;
 }
 
-header h1 {
-    animation: fadeIn 2s ease-in, float 5s ease-in-out infinite;
+p {
+    font-size: 1.2em;
 }
 
-/* Additional styling for other sections to match the sci-fi theme */
-section {
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backgrounds for sections */
-    margin: 1rem;
-    border: 1px solid #00f9ff; /* Neon borders */
-    box-shadow: 0 0 15px #00f9ff; /* Neon glow */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Add similar animations and styles to other elements as needed */
+/* Sci-fi hover effects for links */
+a {
+    color: #00ff00;
+    transition: color 0.5s ease;
+}
+
+a:hover {
+    color: #ff00ff;
+}
+
+/* Include additional sci-fi themed styling and animations here */
