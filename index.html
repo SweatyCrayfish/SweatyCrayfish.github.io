@@ -20,6 +20,8 @@
     </section>
     <!-- Repeat for Experience, Skills, Education, Certificates, and Projects -->
     <!-- Example for Projects: -->
+    
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div id="project-icons">
@@ -32,54 +34,45 @@
         <button id="rotate-left">&#9664;</button>
         <button id="rotate-right">&#9654;</button>
     </section>
-    
+
+    <!-- Footer -->
     <footer>
         <p>© 2023 Viktor Veselov</p>
     </footer>
 
     <script>
-        const projectIcons = document.querySelectorAll('.project-icon');
-        const numIcons = projectIcons.length;
-        const circleRadius = 150; // Radius of the circle
-        const center = {
-            x: document.getElementById('project-icons').offsetWidth / 2,
-            y: document.getElementById('project-icons').offsetHeight / 2
-        };
+        // Define the radius for the icon circle and the initial angle offset
+        const circleRadius = 150;
+        let angleOffset = 0;
 
-        function positionIcons() {
+        // Function to update the position of each icon
+        function updateIconPositions() {
+            const projectIcons = document.querySelectorAll('.project-icon');
+            const angleIncrement = 360 / projectIcons.length;
+
             projectIcons.forEach((icon, index) => {
-                const theta = (index / numIcons) * 2 * Math.PI; // Angle for the current icon
-                const x = center.x + circleRadius * Math.cos(theta) - (icon.offsetWidth / 2);
-                const y = center.y + circleRadius * Math.sin(theta) - (icon.offsetHeight / 2);
-                icon.style.transform = `translate(${x}px, ${y}px)`;
+                const angle = angleIncrement * index + angleOffset;
+                const radians = angle * Math.PI / 180;
+                const x = circleRadius * Math.cos(radians);
+                const y = circleRadius * Math.sin(radians);
+                icon.style.left = 50% + x + 'px'; // Adjust to center
+                icon.style.top = 50% + y + 'px'; // Adjust to middle
             });
         }
 
-        // Initial positioning
-        positionIcons();
-
-        let angleOffset = 0;
+        // Add event listeners to the rotate buttons
         document.getElementById('rotate-left').addEventListener('click', () => {
-            angleOffset -= 360 / numIcons;
+            angleOffset -= 45; // Rotate by 45 degrees
             updateIconPositions();
         });
 
         document.getElementById('rotate-right').addEventListener('click', () => {
-            angleOffset += 360 / numIcons;
+            angleOffset += 45; // Rotate by 45 degrees
             updateIconPositions();
         });
 
-        function updateIconPositions() {
-            projectIcons.forEach((icon, index) => {
-                const theta = ((index / numIcons) * 2 * Math.PI) + (angleOffset * (Math.PI / 180));
-                const x = center.x + circleRadius * Math.cos(theta) - (icon.offsetWidth / 2);
-                const y = center.y + circleRadius * Math.sin(theta) - (icon.offsetHeight / 2);
-                icon.style.transform = `translate(${x}px, ${y}px)`;
-            });
-        }
-
-    <footer>
-        <p>© 2023 Viktor Veselov</p>
-    </footer>
+        // Initial positioning of icons
+        updateIconPositions();
+    </script>
 </body>
 </html>
