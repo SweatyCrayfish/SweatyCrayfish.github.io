@@ -5,7 +5,7 @@ body, h1, h2, p {
 }
 
 body {
-    background-image: url('SweatyCrayfish.github.io/images/back.jpeg');
+    background-image: url('https://raw.githubusercontent.com/SweatyCrayfish/SweatyCrayfish.github.io/main/images/back.jpeg');
     background-size: cover;
     background-attachment: fixed;
     color: #ffffff;
