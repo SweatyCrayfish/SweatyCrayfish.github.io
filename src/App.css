@@ -1,0 +1,16 @@
+/* src/App.css */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.about-section, .hobbies-section, .research-section, .projects-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #333;
+}
