@@ -1,11 +1,11 @@
-// Add your JavaScript code here
 document.addEventListener("DOMContentLoaded", function() {
-    motion.animate({
-        el: document.querySelector('#about'),
-        opacity: [0, 1],
-        duration: 1.5,
-        delay: 0.5
-    });
+    const logos = document.querySelectorAll('#skills .logo');
+    let delay = 0;
 
-    // Add more animations for other sections
+    logos.forEach(logo => {
+        setTimeout(() => {
+            logo.style.opacity = 1;
+        }, delay);
+        delay += 500; // Increase delay for each logo
+    });
 });
