@@ -9,7 +9,7 @@
     <header>
         <h1>Hello, my name is Viktor - AI Engineer</h1>
     </header>
-
+    
     <section id="summary">
         <h2>Summary</h2>
         <p>Welcome to this portfolio. Little bit about myself. I am motivated AI Engineer and as you already seen one of my goals is to become one if not the best expert in AI field. Today, I already wrote multiple python libraries that are actually fully functional softwares applications. One of my main experties is Generative AI. Due to high capicity for critical thinking I do get invloved in many key  projects that allows me to show shine my experties. One of them is ability to not only find but show a value of each model.</p>
@@ -24,51 +24,42 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div id="project-icons">
-            <!-- Example project links -->
-            <a href="https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst" class="project-icon" style="top: 0px; left: 120px;">RTST</a>
-            <a href="https://github.com/SweatyCrayfish/simple-deployment/tree/main" class="project-icon" style="top: 60px; left: 180px;">LLM Deploy</a>
-            <a href="https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main" class="project-icon" style="top: 120px; left: 120px;">Ubuntu Llama</a>
+        <div id="project-container">
+            <div id="project-icons">
+                <a href="https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst" class="project-icon" style="top: 0px; left: 120px;">RTST</a>
+                <a href="https://github.com/SweatyCrayfish/simple-deployment/tree/main" class="project-icon" style="top: 60px; left: 180px;">LLM Deploy</a>
+                <a href="https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main" class="project-icon" style="top: 120px; left: 120px;">Ubuntu Llama</a>
             <!-- ... more projects ... -->
+            </div>
         </div>
         <button id="rotate-left">&#9664;</button>
         <button id="rotate-right">&#9654;</button>
     </section>
-
 <!-- Footer -->
     <footer>
         <p>© 2023 Viktor Veselov</p>
     </footer>
 
     <script>
-        // Get the project icons and define the radius for the circle
+        // Define the radius for the icon circle and the initial angle offset
+        const circleRadius = 150; // Adjust radius as needed
+        let angleOffset = 0;
+        const projectContainer = document.getElementById('project-container');
         const projectIcons = document.querySelectorAll('.project-icon');
-        const circleRadius = 150; // Radius of the circle
 
-        // Function to position icons in a circle initially
-        function positionIcons() {
-            const numIcons = projectIcons.length;
-            const angleIncrement = 360 / numIcons; // Angle between icons
-
+        // Function to update the position of each icon
+        function updateIconPositions() {
+            const angleIncrement = 360 / projectIcons.length;
             projectIcons.forEach((icon, index) => {
-                const angle = angleIncrement * index; // Angle for this icon
-                const radians = (angle * Math.PI) / 180; // Convert to radians
-                // Calculate x and y position
-                const x = circleRadius * Math.cos(radians) + window.innerWidth / 2;
-                const y = circleRadius * Math.sin(radians) + window.innerHeight / 2;
-                // Apply positions
-                icon.style.left = `${x}px`;
-                icon.style.top = `${y}px`;
+                const angle = angleIncrement * index + angleOffset;
+                const radians = angle * Math.PI / 180;
+                const x = circleRadius * Math.cos(radians);
+                const y = circleRadius * Math.sin(radians);
+                icon.style.transform = `translate(${x}px, ${y}px)`;
             });
         }
 
-        // Call the function to position icons
-        positionIcons();
-
-        // Variables to track rotation
-        let angleOffset = 0;
-
-        // Event listeners for rotation buttons
+        // Event listeners for the rotate buttons
         document.getElementById('rotate-left').addEventListener('click', () => {
             angleOffset -= 45; // Rotate by 45 degrees
             updateIconPositions();
@@ -79,22 +70,8 @@
             updateIconPositions();
         });
 
-        // Function to update icon positions based on the angleOffset
-        function updateIconPositions() {
-            const numIcons = projectIcons.length;
-            const angleIncrement = 360 / numIcons; // Angle between icons
-
-            projectIcons.forEach((icon, index) => {
-                const angle = angleIncrement * index + angleOffset; // New angle
-                const radians = (angle * Math.PI) / 180; // Convert to radians
-                // Calculate new x and y position
-                const x = circleRadius * Math.cos(radians) + window.innerWidth / 2;
-                const y = circleRadius * Math.sin(radians) + window.innerHeight / 2;
-                // Apply new positions
-                icon.style.left = `${x}px`;
-                icon.style.top = `${y}px`;
-            });
-        }
+        // Call the function to position icons initially
+        updateIconPositions();
     </script>
 </body>
 </html>
