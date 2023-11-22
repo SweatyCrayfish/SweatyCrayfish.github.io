@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     skills.forEach((skill, index) => {
         setTimeout(() => {
             skill.style.opacity = 1;
-            skill.style.transform = "translateY(0)";
-        }, 100 * index); // Staggered animation
+            skill.style.transform = 'translateY(0)';
+        }, 100 * index);
     });
 });
