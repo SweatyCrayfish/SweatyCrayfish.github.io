@@ -1,27 +1,25 @@
-/* Add your CSS styling here */
-body {
-  font-family: Arial, sans-serif;
-}
-
-section {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-h1 {
-  color: #333;
-}
-#skills .logo {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
+.skill {
+    width: 100px; /* Adjust as per your design */
     margin: 10px;
-    opacity: 0; /* Start with logos hidden */
-    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    transition: opacity 2s, transform 0.5s;
 }
 
-#skills .logo img {
+.skill img {
     width: 100%;
     height: auto;
+    transition: transform 0.5s;
+}
+
+.skill:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in forwards;
 }
