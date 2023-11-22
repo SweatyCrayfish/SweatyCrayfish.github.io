@@ -1,25 +1,25 @@
+#skills {
+    background-color: #0f0f0f; /* Dark background */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
 .skill {
-    width: 100px; /* Adjust as per your design */
-    margin: 10px;
-    opacity: 0;
-    transition: opacity 2s, transform 0.5s;
+    width: 100px;
+    margin: 15px;
+    perspective: 1000px; /* For 3D effects */
 }
 
 .skill img {
     width: 100%;
-    height: auto;
-    transition: transform 0.5s;
+    border: 2px solid #00ff00; /* Neon-style border */
+    box-shadow: 0 0 10px #00ff00; /* Glowing effect */
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .skill:hover img {
-    transform: scale(1.1);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 2s ease-in forwards;
+    transform: rotateY(360deg); /* 3D flip effect */
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Intensified glow */
 }
