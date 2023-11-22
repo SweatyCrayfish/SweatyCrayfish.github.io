@@ -1,26 +1,48 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* Reset some default styles */
+body, h1, p {
     margin: 0;
     padding: 0;
-    color: #333;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif; /* Sci-fi style font */
+    color: #fff; /* Light text for dark background */
+    background-image: url('https://SweatyCrayfish.github.io/images/back.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Background image does not scroll */
 }
 
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
     text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay for readability */
 }
 
+/* Add animations and hover effects */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+header h1 {
+    animation: fadeIn 2s ease-in, float 5s ease-in-out infinite;
+}
+
+/* Additional styling for other sections to match the sci-fi theme */
 section {
-    padding: 20px;
-    margin: 20px;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent backgrounds for sections */
+    margin: 1rem;
+    border: 1px solid #00f9ff; /* Neon borders */
+    box-shadow: 0 0 15px #00f9ff; /* Neon glow */
 }
 
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-}
+/* Add similar animations and styles to other elements as needed */
