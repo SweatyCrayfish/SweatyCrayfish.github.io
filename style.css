@@ -35,7 +35,37 @@ footer {
     width: 100%;
 }
 
+#project-icons {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.project-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    /* Add styles for your icons */
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+}
+
 /* Sci-fi hover effects for links */
+
+#rotate-left, #rotate-right {
+    margin: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 a {
     color: #00ff00;
     transition: color 0.5s ease;
