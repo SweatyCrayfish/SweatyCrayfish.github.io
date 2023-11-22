@@ -35,32 +35,40 @@
         <button id="rotate-right">&#9654;</button>
     </section>
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <p>© 2023 Viktor Veselov</p>
     </footer>
 
     <script>
-        // Define the radius for the icon circle and the initial angle offset
-        const circleRadius = 150;
-        let angleOffset = 0;
+        // Get the project icons and define the radius for the circle
+        const projectIcons = document.querySelectorAll('.project-icon');
+        const circleRadius = 150; // Radius of the circle
 
-        // Function to update the position of each icon
-        function updateIconPositions() {
-            const projectIcons = document.querySelectorAll('.project-icon');
-            const angleIncrement = 360 / projectIcons.length;
+        // Function to position icons in a circle initially
+        function positionIcons() {
+            const numIcons = projectIcons.length;
+            const angleIncrement = 360 / numIcons; // Angle between icons
 
             projectIcons.forEach((icon, index) => {
-                const angle = angleIncrement * index + angleOffset;
-                const radians = angle * Math.PI / 180;
-                const x = circleRadius * Math.cos(radians);
-                const y = circleRadius * Math.sin(radians);
-                icon.style.left = 50% + x + 'px'; // Adjust to center
-                icon.style.top = 50% + y + 'px'; // Adjust to middle
+                const angle = angleIncrement * index; // Angle for this icon
+                const radians = (angle * Math.PI) / 180; // Convert to radians
+                // Calculate x and y position
+                const x = circleRadius * Math.cos(radians) + window.innerWidth / 2;
+                const y = circleRadius * Math.sin(radians) + window.innerHeight / 2;
+                // Apply positions
+                icon.style.left = `${x}px`;
+                icon.style.top = `${y}px`;
             });
         }
 
-        // Add event listeners to the rotate buttons
+        // Call the function to position icons
+        positionIcons();
+
+        // Variables to track rotation
+        let angleOffset = 0;
+
+        // Event listeners for rotation buttons
         document.getElementById('rotate-left').addEventListener('click', () => {
             angleOffset -= 45; // Rotate by 45 degrees
             updateIconPositions();
@@ -71,8 +79,22 @@
             updateIconPositions();
         });
 
-        // Initial positioning of icons
-        updateIconPositions();
+        // Function to update icon positions based on the angleOffset
+        function updateIconPositions() {
+            const numIcons = projectIcons.length;
+            const angleIncrement = 360 / numIcons; // Angle between icons
+
+            projectIcons.forEach((icon, index) => {
+                const angle = angleIncrement * index + angleOffset; // New angle
+                const radians = (angle * Math.PI) / 180; // Convert to radians
+                // Calculate new x and y position
+                const x = circleRadius * Math.cos(radians) + window.innerWidth / 2;
+                const y = circleRadius * Math.sin(radians) + window.innerHeight / 2;
+                // Apply new positions
+                icon.style.left = `${x}px`;
+                icon.style.top = `${y}px`;
+            });
+        }
     </script>
 </body>
 </html>
