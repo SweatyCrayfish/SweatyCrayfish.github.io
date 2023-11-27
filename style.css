@@ -34,10 +34,12 @@ p {
     font-size: 1.2em;
 }
 
+
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    height: 60px;
     padding: 5px 0; /* Reduce padding to make the footer smaller */
     background: rgba(0, 0, 0, 0.9);
     font-size: 0.8em; /* Adjust the font size as necessary */
