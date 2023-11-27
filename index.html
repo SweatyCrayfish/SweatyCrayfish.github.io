@@ -11,11 +11,11 @@
     </header>
     <section id="summary">
         <h2>Summary</h2>
-        <p>Welcome to this portfolio...</p>
+        <p>Welcome to this portfolio. Little bit about myself. I am motivated AI Engineer and as you already seen one of my goals is to become one if not the best expert in AI field. Today, I already wrote multiple python libraries that are actually fully functional softwares applications. One of my main experties is Generative AI. Due to high capicity for critical thinking I do get invloved in many key  projects that allows me to show shine my experties. One of them is ability to not only find but show a value of each model.</p>
     </section>
     <section id="Skills">
         <h2>Skills</h2>
-        <p>Python, SQL, R, JavaScript, HTML, CSS, AWS, GitHub</p>
+        <p>Python, SQL, R, JavaScript, HTML, CSS, AWS, GitHub, Deep Learning, Generative AI, Computer Vision, Quantume Physics</p>
     </section>
     
     <!-- Projects Section -->
@@ -61,45 +61,42 @@
         };
 
         let currentIconIndex = 0;
-        const projectContainer = document.getElementById('project-container');
+        let currentIconIndex = 0;
         const projectIcons = document.querySelectorAll('.project-icon');
         const projectDescriptionElement = document.getElementById('project-description');
         const learnMoreLink = document.getElementById('learn-more');
 
         function updateProjectDisplay() {
-          projectIcons.forEach((icon, index) => {
-            icon.style.transform = `translateX(${(index - currentIconIndex) * 100}%)`;
-            icon.style.opacity = index === currentIconIndex ? '1' : '0.5';
-            icon.style.zIndex = index === currentIconIndex ? '10' : '1';
-          });
+            const currentProjectName = projectIcons[currentIconIndex].textContent.trim();
+            projectDescriptionElement.textContent = projectDescriptions[currentProjectName];
+            learnMoreLink.href = projectLinks[currentProjectName];
 
-    // Update the project description and link
-          const currentProject = projectIcons[currentIconIndex].textContent.trim();
-          projectDescriptionElement.textContent = projectDescriptions[currentProject];
-          learnMoreLink.href = projectLinks[currentProject];
+    // Update the styling of the currently selected icon
+            projectIcons.forEach((icon, index) => {
+                icon.style.opacity = index === currentIconIndex ? '1' : '0.5';
+            });
         }
 
         document.getElementById('rotate-left').addEventListener('click', () => {
-          currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
-          updateProjectDisplay();
+            currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
+            updateProjectDisplay();
         });
 
         document.getElementById('rotate-right').addEventListener('click', () => {
-          currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
-          updateProjectDisplay();
+            currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
+            updateProjectDisplay();
         });
 
-        updateProjectDisplay(); // Initialize the display
+// Initialize with the first project
+        updateProjectDisplay();
 
-        // Update this part to handle the clicking of project icons
-        document.querySelectorAll('.project-icon').forEach(icon => {
-            icon.addEventListener('click', function() {
-                const projectName = this.textContent.trim();
-                projectDescriptionElement.textContent = projectDescriptions[projectName];
-                learnMoreLink.href = projectLinks[projectName];
-    });
-});
-
+// Adding click event listener to each project icon
+        projectIcons.forEach((icon, index) => {
+            icon.addEventListener('click', () => {
+                currentIconIndex = index;
+                updateProjectDisplay();
+            });
+        });
     </script>
 </body>
 </html>
