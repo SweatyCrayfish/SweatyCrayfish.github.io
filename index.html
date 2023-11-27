@@ -11,30 +11,36 @@
     </header>
     <section id="summary">
         <h2>Summary</h2>
-        <p>Welcome to this portfolio. Little bit about myself. I am motivated AI Engineer and as you already seen one of my goals is to become one if not the best expert in AI field. Today, I already wrote multiple python libraries that are actually fully functional softwares applications. One of my main experties is Generative AI. Due to high capicity for critical thinking I do get invloved in many key  projects that allows me to show shine my experties. One of them is ability to not only find but show a value of each model.</p>
+        <p>Welcome to this portfolio...</p>
     </section>
     <section id="Skills">
         <h2>Skills</h2>
         <p>Python, SQL, R, JavaScript, HTML, CSS, AWS, GitHub</p>
     </section>
-    <!-- Repeat for Experience, Skills, Education, Certificates, and Projects -->
-    <!-- Example for Projects: -->
     
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div id="project-container">
-            <div id="project-icons">
-                <a href="https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst" class="project-icon" style="top: 0px; left: 120px;">RTST</a>
-                <a href="https://github.com/SweatyCrayfish/simple-deployment/tree/main" class="project-icon" style="top: 60px; left: 180px;">LLM Deploy</a>
-                <a href="https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main" class="project-icon" style="top: 120px; left: 120px;">Ubuntu Llama</a>
-            <!-- ... more projects ... -->
+            <div id="left-project-icons" class="project-icons">
+                <!-- Left side project icons here -->
+                <a href="#" class="project-icon">Project 1</a>
+                <!-- ... more left side projects ... -->
+            </div>
+            <div id="project-description-container">
+                <div id="project-description"></div>
+                <a id="learn-more" href="#">Learn More</a>
+            </div>
+            <div id="right-project-icons" class="project-icons">
+                <!-- Right side project icons here -->
+                <a href="#" class="project-icon">Project 2</a>
+                <!-- ... more right side projects ... -->
             </div>
         </div>
         <button id="rotate-left">&#9664;</button>
         <button id="rotate-right">&#9654;</button>
     </section>
-<!-- Footer -->
+
     <footer>
         <p>© 2023 Viktor Veselov</p>
     </footer>
@@ -84,6 +90,16 @@
         });
 
         updateProjectDisplay(); // Initialize the display
+
+        // Update this part to handle the clicking of project icons
+        document.querySelectorAll('.project-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const projectName = this.textContent.trim();
+                projectDescriptionElement.textContent = projectDescriptions[projectName];
+                learnMoreLink.href = projectLinks[projectName];
+    });
+});
+
     </script>
 </body>
 </html>
