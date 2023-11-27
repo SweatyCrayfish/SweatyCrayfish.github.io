@@ -9,7 +9,7 @@ body, h1, h2, p {
 body {
     background-image: url('https://SweatyCrayfish.github.io/images/back.jpeg');
     background-size: cover;
-    background-attachment: scroll; /* Change this from 'fixed' to 'scroll' */
+    background-attachment: fixed;
 }
 
 header, footer, section {
@@ -17,7 +17,7 @@ header, footer, section {
     padding: 40px 20px;
     margin: 20px auto;
     max-width: 800px;
-    background: rgba(0, 0, 0, 0); /* Removed the semi-transparent black background */
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
     border-radius: 10px;
 }
@@ -71,12 +71,12 @@ section.overlap-top {
 
 #project-container {
     position: relative;
-    width: 100%;
-    min-height: 300px;
+    width: 100%; /* Take the full width of the section */
+    min-height: 300px; /* Provide enough height to avoid overlapping */
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: hidden; /* Prevent icons from overflowing the section */
 }
 
 #project-icons {
