@@ -48,18 +48,19 @@
         const projectIcons = document.querySelectorAll('.project-icon');
 
         // Function to update the position of each icon
-        function updateIconPositions() {
-            const angleIncrement = 360 / projectIcons.length;
-            projectIcons.forEach((icon, index) => {
-                // Calculate the angle for the current index offset by the selected icon index
-                const angle = angleIncrement * (index - currentIconIndex);
-                const radians = angle * Math.PI / 180;
-                const x = ellipseWidth * Math.cos(radians);
-                const y = ellipseHeight * Math.sin(radians);
-                icon.style.transform = `translate(${x}px, ${y}px)`;
-                icon.style.zIndex = index === currentIconIndex ? 10 : 1; // Bring the center icon to the front
-            });
-        }
+       function updateIconPositions() {
+           const angleIncrement = 360 / projectIcons.length;
+           const offsetAngle = 90; // This will ensure the icon is at the center top position
+
+           projectIcons.forEach((icon, index) => {
+               const angle = (angleIncrement * (index - currentIconIndex) - offsetAngle) % 360;
+               const radians = (angle * Math.PI) / 180;
+               const x = ellipseWidth * Math.cos(radians);
+               const y = ellipseHeight * Math.sin(radians) * -1; // Multiply by -1 to invert the y-axis for a standard Cartesian coordinate system
+               icon.style.transform = `translate(${x}px, ${y}px)`;
+               icon.style.zIndex = index === currentIconIndex ? 10 : 1;
+           });
+       }
 
         // Event listener for the rotate-left button
         document.getElementById('rotate-left').addEventListener('click', () => {
