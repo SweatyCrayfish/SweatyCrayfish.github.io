@@ -35,11 +35,13 @@ p {
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0; /* Reduce padding to make the footer smaller */
     background: rgba(0, 0, 0, 0.9);
+    font-size: 0.8em; /* Adjust the font size as necessary */
+    text-align: center;
 }
 
 section.overlap-top {
@@ -71,6 +73,7 @@ section.overlap-top {
 
 #project-container {
     position: relative;
+    height: 400px;
     width: 100%; /* Take the full width of the section */
     min-height: 300px; /* Provide enough height to avoid overlapping */
     display: flex;
