@@ -14,7 +14,7 @@ body {
 header, footer, section {
     text-align: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* semi-transparent overlay for text sections */
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay for text sections */
 }
 
 h1 {
@@ -33,6 +33,22 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+section {
+    position: relative;
+    z-index: 1;
+}
+
+section.overlap-top {
+    margin-top: -50px; /* Overlap amount */
+    z-index: 2; /* Ensure this section overlaps the previous one */
+}
+
+@media screen and (max-width: 768px) {
+    section.overlap-top {
+        margin-top: -30px; /* Less overlap on smaller screens */
+    }
 }
 
 #project-icons {
@@ -66,6 +82,7 @@ footer {
     padding: 5px 10px;
     cursor: pointer;
 }
+
 a {
     color: #00ff00;
     transition: color 0.5s ease;
@@ -74,5 +91,3 @@ a {
 a:hover {
     color: #ff00ff;
 }
-
-/* Include additional sci-fi themed styling and animations here */
