@@ -39,46 +39,51 @@
         <p>© 2023 Viktor Veselov</p>
     </footer>
     <script>
-        // Define the dimensions for the ellipse
-        const ellipseWidth = 300; // Adjust as needed for the horizontal radius
-        const ellipseHeight = 150; // Adjust as needed for the vertical radius
-        let currentIconIndex = 0; // Start with the first icon in the center
+        // Example JavaScript for a linear carousel of projects
+        const projectDescriptions = {
+          'RTST': 'Real-Time Speech Translator...',
+          'LLM Deploy': 'Simple Deployment Example...',
+          'Ubuntu Llama': 'Ubuntu Llama Project...'
+    // Add other project descriptions here
+        };
 
+        const projectLinks = {
+          'RTST': 'https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst',
+          'LLM Deploy': 'https://github.com/SweatyCrayfish/simple-deployment/tree/main',
+          'Ubuntu Llama': 'https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main'
+    // Add other project links here
+        };
+
+        let currentIconIndex = 0;
         const projectContainer = document.getElementById('project-container');
         const projectIcons = document.querySelectorAll('.project-icon');
+        const projectDescriptionElement = document.getElementById('project-description');
+        const learnMoreLink = document.getElementById('learn-more');
 
-    // Function to update the position of each icon
-        function updateIconPositions() {
-            const angleIncrement = 360 / projectIcons.length;
-            const offsetAngle = 90; // This will ensure the icon is at the center top position
+        function updateProjectDisplay() {
+          projectIcons.forEach((icon, index) => {
+            icon.style.transform = `translateX(${(index - currentIconIndex) * 100}%)`;
+            icon.style.opacity = index === currentIconIndex ? '1' : '0.5';
+            icon.style.zIndex = index === currentIconIndex ? '10' : '1';
+          });
 
-            projectIcons.forEach((icon, index) => {
-                const angle = (angleIncrement * (index - currentIconIndex) - offsetAngle) % 360;
-                const radians = (angle * Math.PI) / 180;
-                const x = ellipseWidth * Math.cos(radians);
-                const y = ellipseHeight * Math.sin(radians) * -1; // Multiply by -1 to invert the y-axis for a standard Cartesian coordinate system
-                icon.style.transform = `translate(${x}px, ${y}px)`;
-                icon.style.zIndex = index === currentIconIndex ? 10 : 1;
-            });
+    // Update the project description and link
+          const currentProject = projectIcons[currentIconIndex].textContent.trim();
+          projectDescriptionElement.textContent = projectDescriptions[currentProject];
+          learnMoreLink.href = projectLinks[currentProject];
         }
 
-    // Event listener for the rotate-left button
         document.getElementById('rotate-left').addEventListener('click', () => {
-            currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
-            updateIconPositions();
+          currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
+          updateProjectDisplay();
         });
 
-    // Event listener for the rotate-right button
         document.getElementById('rotate-right').addEventListener('click', () => {
-            currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
-            updateIconPositions();
+          currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
+          updateProjectDisplay();
         });
 
-    // Call the function to position icons initially
-        updateIconPositions();
-
-    // Optionally, listen to resize events to update icon positions if the window size changes
-        window.addEventListener('resize', updateIconPositions);
+        updateProjectDisplay(); // Initialize the display
     </script>
 </body>
 </html>
