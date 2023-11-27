@@ -6,19 +6,12 @@ body, h1, h2, p {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-body {
-    background-image: url('https://SweatyCrayfish.github.io/images/back.jpeg');
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 header, footer, section {
     text-align: center;
     padding: 40px 20px;
     margin: 20px auto;
     max-width: 800px;
     background: rgba(0, 0, 0, 0.8);
-    /*backdrop-filter: blur(5px);*/
     border-radius: 10px;
 }
 
@@ -34,101 +27,41 @@ p {
     font-size: 1.2em;
 }
 
-
 footer {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 0.8em;
     position: fixed;
-    left: 0; /* Ensures it starts from the far left */
-    bottom: 0; /* Anchors it to the bottom */
-    width: 100%; /* Stretches across the full width */
-    height: 60px; /* You can adjust this as needed */
-    padding: 10px 0; /* Adjust padding to center the content vertically */
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    font-size: 0.8em; /* Adjust font size as necessary */
-    text-align: center; /* Centers the content horizontally */
-    color: white; /* Set the text color, if needed */
-    box-sizing: border-box; /* Includes padding and border in the width and height */
-}
-
-section.overlap-top {
-    margin-top: -50px; /* Overlap amount */
-    z-index: 2; /* Ensure this section overlaps the previous one */
-}
-
-@media screen and (max-width: 768px) {
-    section.overlap-top {
-        margin-top: -30px; /* Less overlap on smaller screens */
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    section {
-        padding: 20px;
-    }
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 #project-container {
     display: flex;
-    justify-content: space-between;
-    position: relative;
-    height: 400px;
-    width: 100%; /* Take the full width of the section */
-    min-height: 300px; /* Provide enough height to avoid overlapping */
-    align-items: center;
-    overflow: hidden; /* Prevent icons from overflowing the section */
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.project-icons {
-    flex-basis: 20%; /* Adjust based on preference */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-icon {
-    position: relative;
-    margin: 0 15px; /* Space out the icons */
-    opacity: 0.5; /* Non-selected icons are less opaque */
-    width: 60px;  /* Increased size */
-    height: 80px; /* Increased size */
-    text-align: center;
-    line-height: 80px; /* Adjust line height to new height for vertical centering */
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Shape of a shield */
-}
-
-.project-icon:hover {
-    transform: translate(calc(-50% - 30px), calc(-50% - 40px)) scale(1.1); /* The calc() adjusts the scale transform origin */
+.project-frame {
     cursor: pointer;
-    margin: 10px 0; /* Spacing between icons */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.1);
 }
 
-
-#project-description {
-    text-align: center;
-    margin-top: 20px;
+.project-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 #project-description-container {
-    flex-basis: 60%; /* Adjust based on preference */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
 }
 
 #learn-more {
@@ -139,23 +72,5 @@ section.overlap-top {
 }
 
 #learn-more:hover {
-    color: #ff00ff;
-}
-
-#rotate-left, #rotate-right {
-    margin: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-a {
-    color: #00ff00;
-    transition: color 0.5s ease;
-}
-
-a:hover {
     color: #ff00ff;
 }
