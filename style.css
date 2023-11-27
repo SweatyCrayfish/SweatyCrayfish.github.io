@@ -74,22 +74,22 @@ section.overlap-top {
 }
 
 #project-container {
+    display: flex;
+    justify-content: space-between;
     position: relative;
     height: 400px;
     width: 100%; /* Take the full width of the section */
     min-height: 300px; /* Provide enough height to avoid overlapping */
-    display: flex;
     align-items: center;
-    justify-content: center;
     overflow: hidden; /* Prevent icons from overflowing the section */
 }
 
-#project-icons {
+.project-icons {
+    flex-basis: 20%; /* Adjust based on preference */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
 }
 
 .project-icon {
@@ -109,11 +109,23 @@ section.overlap-top {
 
 .project-icon:hover {
     transform: translate(calc(-50% - 30px), calc(-50% - 40px)) scale(1.1); /* The calc() adjusts the scale transform origin */
+    cursor: pointer;
+    margin: 10px 0; /* Spacing between icons */
 }
+
 
 #project-description {
     text-align: center;
     margin-top: 20px;
+}
+
+#project-description-container {
+    flex-basis: 60%; /* Adjust based on preference */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #learn-more {
