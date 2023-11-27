@@ -39,37 +39,41 @@
         <p>© 2023 Viktor Veselov</p>
     </footer>
     <script>
-    // Define the radius for the icon circle and the initial angle offset
-        const circleRadius = 150; // Adjust radius as needed
-        let angleOffset = 0;
+        // Define the dimensions for the ellipse
+        const ellipseWidth = 300; // Adjust as needed for the horizontal radius
+        const ellipseHeight = 150; // Adjust as needed for the vertical radius
+        let currentIconIndex = 0; // Start with the first icon in the center
+
         const projectContainer = document.getElementById('project-container');
         const projectIcons = document.querySelectorAll('.project-icon');
 
-    // Function to update the position of each icon
+        // Function to update the position of each icon
         function updateIconPositions() {
             const angleIncrement = 360 / projectIcons.length;
             projectIcons.forEach((icon, index) => {
-                const angle = angleIncrement * index + angleOffset;
+                // Calculate the angle for the current index offset by the selected icon index
+                const angle = angleIncrement * (index - currentIconIndex);
                 const radians = angle * Math.PI / 180;
-                const x = circleRadius * Math.cos(radians);
-                const y = circleRadius * Math.sin(radians);
-                const tilt = -angle; // Tilting the icon based on its angle
-                icon.style.transform = `translate(${x}px, ${y}px) rotate(${tilt}deg)`;
+                const x = ellipseWidth * Math.cos(radians);
+                const y = ellipseHeight * Math.sin(radians);
+                icon.style.transform = `translate(${x}px, ${y}px)`;
+                icon.style.zIndex = index === currentIconIndex ? 10 : 1; // Bring the center icon to the front
             });
         }
 
-    // Event listeners for the rotate buttons
+        // Event listener for the rotate-left button
         document.getElementById('rotate-left').addEventListener('click', () => {
-            angleOffset -= 45; // Rotate by 45 degrees
+            currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
             updateIconPositions();
         });
 
+        // Event listener for the rotate-right button
         document.getElementById('rotate-right').addEventListener('click', () => {
-            angleOffset += 45; // Rotate by 45 degrees
+            currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
             updateIconPositions();
         });
 
-    // Call the function to position icons initially
+        // Call the function to position icons initially
         updateIconPositions();
     </script>
 </body>
