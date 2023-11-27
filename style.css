@@ -13,10 +13,11 @@ body {
     background-attachment: fixed;
 }
 
-header, footer, section {
+header, section {
     text-align: center;
     padding: 40px 20px;
     margin: 20px auto;
+    /*max-width: 800px;*/
     max-width: 800px;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
