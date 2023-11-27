@@ -91,7 +91,9 @@ section.overlap-top {
 }
 
 .project-icon {
-    position: absolute;
+    position: relative;
+    margin: 0 15px; /* Space out the icons */
+    opacity: 0.5; /* Non-selected icons are less opaque */
     width: 60px;  /* Increased size */
     height: 80px; /* Increased size */
     text-align: center;
@@ -99,12 +101,28 @@ section.overlap-top {
     background-color: #333;
     color: #fff;
     text-decoration: none;
-    transition: transform 0.3s ease, z-index 0s;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); /* Shape of a shield */
 }
 
 .project-icon:hover {
     transform: translate(calc(-50% - 30px), calc(-50% - 40px)) scale(1.1); /* The calc() adjusts the scale transform origin */
+}
+
+#project-description {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#learn-more {
+    display: block;
+    margin-top: 10px;
+    color: #00ff00;
+    text-decoration: none;
+}
+
+#learn-more:hover {
+    color: #ff00ff;
 }
 
 #rotate-left, #rotate-right {
