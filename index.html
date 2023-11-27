@@ -21,6 +21,7 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
+        <p>Click on a project to see more details:</p>
         <div id="project-container">
             <div class="project-frame" data-project="RTST">RTST</div>
             <div class="project-frame" data-project="Simple Deployment">Simple Deployment</div>
@@ -39,16 +40,16 @@
     <script>
         const projectDescriptions = {
             'RTST': 'The rtst is a Python package for comprehensive speech processing. It integrates speech recognition, language detection, translation, and text-to-speech functionalities into a single, easy-to-use function.',
-            'Simple Deployment': 'Simple Deployment This project is a chatbot interface that integrates Hugging Face Transformers library with a Flask backend. It serves a frontend built with HTML, CSS, and JavaScript to interact with the user. The user can input text which is then processed by the Flask backend and fed into a pre-trained language model. The model generated text is then sent back to the frontend and displayed.',
-            'Ubuntu Llama': 'Building dialogue systems, where a human can have a natural-feeling conversation with a virtual agent, is a difficult task in Natural Language Processing and the focus of much ongoing research. Some of the challenges include linking references to the same entity over time, tracking what’s happened in the conversation previously, and generating appropriate responses. This paper delves into our experiment in building such a virtual agent. We scrutinized various models such as CodeLLaMa, OPT, FlanT5 and Llama2. We outline the rationale behind our choice of Llama2-chat-instruct and how the model stands out due to its high-quality instruction-tuned capabilities and inherent ability for summarizing text. To further augment the quality of inferences drawn by the model, we implement a complete fine-tuning approach.. Furthermore, we will explore Parameter Efficient Fine-Tuning (PEFT), demonstrating how it reduces memory and time resource requirements while maintaining model performance. Finally, we will assess these results using ROUGE metrics - a popular choice for evaluating models before and deploy the model to Hugging Face for serving.'
-            // Add other project descriptions here
+            'LLM Deploy': 'Simple Deployment This project is a chatbot interface that integrates Hugging Face Transformers library with a Flask backend. It serves a frontend built with HTML, CSS, and JavaScript to interact with the user. The user can input text which is then processed by the Flask backend and fed into a pre-trained language model. The model generated text is then sent back to the frontend and displayed.',
+            'Ubuntu Llama': 'Building dialogue systems, where a human can have a natural-feeling conversation with a virtual agent, is a difficult task in Natural Language Processing and the focus of much ongoing research...'
+    // Add other project descriptions here
         };
 
         const projectLinks = {
-            'RTST': 'https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst',
-            'Simple Deployment': 'https://github.com/SweatyCrayfish/simple-deployment/tree/main',
-            'Ubuntu Llama': 'https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main'
-            // Add other project links here
+            'RTST': 'https://link-to-RTST',
+            'LLM Deploy': 'https://link-to-LLM-Deploy',
+            'Ubuntu Llama': 'https://link-to-Ubuntu-Llama'
+    // Add other project links here
         };
 
         const projectFrames = document.querySelectorAll('.project-frame');
@@ -57,11 +58,28 @@
 
         projectFrames.forEach(frame => {
             frame.addEventListener('click', () => {
+        // Retrieve the project name from the data attribute
                 const projectName = frame.getAttribute('data-project');
+
+        // Update the active state for project frames
+                projectFrames.forEach(f => f.classList.remove('active'));
+                frame.classList.add('active');
+
+        // Update the project description and link
                 projectDescriptionElement.textContent = projectDescriptions[projectName];
                 learnMoreLink.href = projectLinks[projectName];
+
+        // Make the description container visible
+                const descriptionContainer = document.getElementById('project-description-container');
+                descriptionContainer.classList.add('active');
             });
         });
+
+// Initialize with the first project as active (optional)
+        if (projectFrames.length > 0) {
+            projectFrames[0].click();
+        }
+
     </script>
 </body>
 </html>
