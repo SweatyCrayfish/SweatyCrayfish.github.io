@@ -2,30 +2,24 @@ body, h1, h2, p {
     margin: 0;
     padding: 0;
     font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 body {
-    background-image: url('https://raw.githubusercontent.com/SweatyCrayfish/SweatyCrayfish.github.io/main/images/back.jpeg');
+    background-image: url('https://SweatyCrayfish.github.io/images/back.jpeg');
     background-size: cover;
     background-attachment: fixed;
-    color: #ffffff;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0); /* 100% transparent */
-    z-index: -1;
 }
 
 header, footer, section {
     text-align: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay for text sections */
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
 }
 
 h1 {
@@ -44,11 +38,8 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-section {
-    position: relative;
-    z-index: 1;
+    padding: 10px 0;
+    background: rgba(0, 0, 0, 0.9);
 }
 
 section.overlap-top {
@@ -60,30 +51,56 @@ section.overlap-top {
     section.overlap-top {
         margin-top: -30px; /* Less overlap on smaller screens */
     }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+#project-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 
 #project-icons {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .project-icon {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 40px;
-    /* Add styles for your icons */
-    text-align: center;
-    line-height: 40px;
     border-radius: 50%;
     background-color: #333;
     color: #fff;
     text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
-/* Sci-fi hover effects for links */
+.project-icon:hover {
+    transform: scale(1.1);
+}
 
 #rotate-left, #rotate-right {
     margin: 10px;
