@@ -61,42 +61,45 @@
         };
 
         let currentIconIndex = 0;
-        let currentIconIndex = 0;
+        const projectContainer = document.getElementById('project-container');
         const projectIcons = document.querySelectorAll('.project-icon');
         const projectDescriptionElement = document.getElementById('project-description');
         const learnMoreLink = document.getElementById('learn-more');
 
         function updateProjectDisplay() {
-            const currentProjectName = projectIcons[currentIconIndex].textContent.trim();
-            projectDescriptionElement.textContent = projectDescriptions[currentProjectName];
-            learnMoreLink.href = projectLinks[currentProjectName];
+          projectIcons.forEach((icon, index) => {
+            icon.style.transform = `translateX(${(index - currentIconIndex) * 100}%)`;
+            icon.style.opacity = index === currentIconIndex ? '1' : '0.5';
+            icon.style.zIndex = index === currentIconIndex ? '10' : '1';
+          });
 
-    // Update the styling of the currently selected icon
-            projectIcons.forEach((icon, index) => {
-                icon.style.opacity = index === currentIconIndex ? '1' : '0.5';
-            });
+    // Update the project description and link
+          const currentProject = projectIcons[currentIconIndex].textContent.trim();
+          projectDescriptionElement.textContent = projectDescriptions[currentProject];
+          learnMoreLink.href = projectLinks[currentProject];
         }
 
         document.getElementById('rotate-left').addEventListener('click', () => {
-            currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
-            updateProjectDisplay();
+          currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
+          updateProjectDisplay();
         });
 
         document.getElementById('rotate-right').addEventListener('click', () => {
-            currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
-            updateProjectDisplay();
+          currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
+          updateProjectDisplay();
         });
 
-// Initialize with the first project
-        updateProjectDisplay();
+        updateProjectDisplay(); // Initialize the display
 
-// Adding click event listener to each project icon
-        projectIcons.forEach((icon, index) => {
-            icon.addEventListener('click', () => {
-                currentIconIndex = index;
-                updateProjectDisplay();
-            });
-        });
+        // Update this part to handle the clicking of project icons
+        document.querySelectorAll('.project-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const projectName = this.textContent.trim();
+                projectDescriptionElement.textContent = projectDescriptions[projectName];
+                learnMoreLink.href = projectLinks[projectName];
+    });
+});
+
     </script>
 </body>
 </html>
