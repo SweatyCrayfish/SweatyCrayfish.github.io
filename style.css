@@ -1,9 +1,16 @@
+/* General Styles */
 body, h1, h2, p {
     margin: 0;
     padding: 0;
     font-family: 'Orbitron', sans-serif;
     color: #ffffff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+body {
+    background-image: url('https://SweatyCrayfish.github.io/images/back.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header, footer, section {
@@ -27,6 +34,7 @@ p {
     font-size: 1.2em;
 }
 
+/* Footer Styles */
 footer {
     text-align: center;
     padding: 10px 0;
@@ -38,6 +46,7 @@ footer {
     width: 100%;
 }
 
+/* Project Section Styles */
 #project-container {
     display: flex;
     justify-content: space-around;
@@ -48,20 +57,27 @@ footer {
     cursor: pointer;
     margin: 10px;
     padding: 20px;
-    border: 1px solid #fff;
+    border: 2px solid transparent;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     background: rgba(255, 255, 255, 0.1);
 }
 
-.project-frame:hover {
+.project-frame:hover, .project-frame.active {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+    border-color: #00ff00; /* Highlight color */
 }
 
 #project-description-container {
     margin-top: 20px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#project-description-container.active {
+    opacity: 1;
 }
 
 #learn-more {
