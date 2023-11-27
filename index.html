@@ -47,35 +47,38 @@
         const projectContainer = document.getElementById('project-container');
         const projectIcons = document.querySelectorAll('.project-icon');
 
-        // Function to update the position of each icon
-       function updateIconPositions() {
-           const angleIncrement = 360 / projectIcons.length;
-           const offsetAngle = 90; // This will ensure the icon is at the center top position
+    // Function to update the position of each icon
+        function updateIconPositions() {
+            const angleIncrement = 360 / projectIcons.length;
+            const offsetAngle = 90; // This will ensure the icon is at the center top position
 
-           projectIcons.forEach((icon, index) => {
-               const angle = (angleIncrement * (index - currentIconIndex) - offsetAngle) % 360;
-               const radians = (angle * Math.PI) / 180;
-               const x = ellipseWidth * Math.cos(radians);
-               const y = ellipseHeight * Math.sin(radians) * -1; // Multiply by -1 to invert the y-axis for a standard Cartesian coordinate system
-               icon.style.transform = `translate(${x}px, ${y}px)`;
-               icon.style.zIndex = index === currentIconIndex ? 10 : 1;
-           });
-       }
+            projectIcons.forEach((icon, index) => {
+                const angle = (angleIncrement * (index - currentIconIndex) - offsetAngle) % 360;
+                const radians = (angle * Math.PI) / 180;
+                const x = ellipseWidth * Math.cos(radians);
+                const y = ellipseHeight * Math.sin(radians) * -1; // Multiply by -1 to invert the y-axis for a standard Cartesian coordinate system
+                icon.style.transform = `translate(${x}px, ${y}px)`;
+                icon.style.zIndex = index === currentIconIndex ? 10 : 1;
+            });
+        }
 
-        // Event listener for the rotate-left button
+    // Event listener for the rotate-left button
         document.getElementById('rotate-left').addEventListener('click', () => {
             currentIconIndex = (currentIconIndex - 1 + projectIcons.length) % projectIcons.length;
             updateIconPositions();
         });
 
-        // Event listener for the rotate-right button
+    // Event listener for the rotate-right button
         document.getElementById('rotate-right').addEventListener('click', () => {
             currentIconIndex = (currentIconIndex + 1) % projectIcons.length;
             updateIconPositions();
         });
 
-        // Call the function to position icons initially
+    // Call the function to position icons initially
         updateIconPositions();
+
+    // Optionally, listen to resize events to update icon positions if the window size changes
+        window.addEventListener('resize', updateIconPositions);
     </script>
 </body>
 </html>
