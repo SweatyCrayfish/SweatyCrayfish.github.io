@@ -101,13 +101,15 @@ footer {
 /* Project Section Styles */
 #project-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: 200px; /* Adjust as needed */
 }
 
 .project-frame {
     cursor: pointer;
     margin: 10px;
+    flex-basis: calc(33% - 20px); /* Adjust the percentage for desired width */
     padding: 20px;
     border: 2px solid transparent;
     border-radius: 10px;
@@ -177,6 +179,7 @@ footer {
     .project-frame, .skill {
         width: 100%;
         margin: 10px 0;
+        flex-basis: calc(33% - 20px); /* Adjust the percentage for desired width */
     }
 
     header, section {
