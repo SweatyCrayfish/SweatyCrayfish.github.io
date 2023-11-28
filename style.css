@@ -46,11 +46,24 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+#Skills .skill {
+    display: inline-block; /* Align icons and text vertically */
+    text-align: center; /* Center the text below the icons */
+    margin: 0 10px; /* Spacing between each skill */
+}
+
 /* Style for the icons in the Skills section */
 #Skills i {
     font-size: 2em; /* Adjust the size */
     margin: 0 10px; /* Add spacing between icons */
     color: #00ff00; /* Set the color */
+}
+
+#Skills p {
+    color: #ffffff; /* Adjust the color as needed */
+    margin-top: 5px; /* Space between icon and text */
+    font-size: 0.8em; /* Adjust the size of the font below the icon */
 }
 
 /* Project Section Styles */
