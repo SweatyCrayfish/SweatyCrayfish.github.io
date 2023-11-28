@@ -105,7 +105,7 @@ footer {
 .project-frame:hover, .project-frame.active {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    border-color: #ffcc00
+    border-color: #4DB8FF; /* Soft blue highlight color */
 }
 
 #project-description-container {
