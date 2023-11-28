@@ -46,6 +46,12 @@ footer {
     bottom: 0;
     width: 100%;
 }
+/* Style for the icons in the Skills section */
+#Skills i {
+    font-size: 2em; /* Adjust the size */
+    margin: 0 10px; /* Add spacing between icons */
+    color: #00ff00; /* Set the color */
+}
 
 /* Project Section Styles */
 #project-container {
