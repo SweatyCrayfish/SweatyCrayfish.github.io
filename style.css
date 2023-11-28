@@ -55,17 +55,33 @@ footer {
     gap: 20px; /* Space between skills */
 }
 
+
 .skill {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for transform and shadow */
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
+}
+
+.skill:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Shadow effect for depth */
+}
+
+.skill:active {
+    transform: scale(0.95); /* Slight shrink effect on click */
 }
 
 .skill i {
     font-size: 2em;
     margin-bottom: 5px; /* Space between icon and text */
 }
+
 
 /* Assign individual colors to each skill icon */
 .fa-python { color: #3572A5; }
