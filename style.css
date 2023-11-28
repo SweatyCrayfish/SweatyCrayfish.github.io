@@ -124,24 +124,28 @@ footer {
 #learn-more {
     display: inline-block;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid #4CAF50; /* Green border to match the theme */
     border-radius: 5px;
-    background-color: #4CAF50; /* Green background */
-    color: white;
+    background-color: rgba(255, 255, 255, 0.2); /* Glassy background similar to sections */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
     cursor: pointer;
     font-weight: bold;
+    backdrop-filter: blur(10px); /* Blur effect behind the background */
 }
 
 #learn-more:hover {
-    background-color: #367c39; /* Darker shade of green for hover effect */
+    background-color: rgba(76, 175, 80, 0.4); /* Slightly darker green for hover effect */
+    border-color: #367c39; /* Darker green for border on hover */
     transform: translateY(-2px); /* Slight lift when hovered */
 }
 
 #learn-more:active {
     transform: translateY(1px); /* Pressed effect */
+    background-color: rgba(76, 175, 80, 0.6); /* Even darker for active state */
 }
 
 /* Responsive Design */
