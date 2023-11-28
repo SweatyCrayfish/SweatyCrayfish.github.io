@@ -18,10 +18,9 @@ header, section {
     padding: 40px 20px;
     margin: 20px auto;
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.2); /* Glassy background */
+    backdrop-filter: blur(10px); /* Blur effect behind the background */
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Border for glass effect */
 }
 
 h1 {
@@ -41,7 +40,6 @@ footer {
     text-align: center;
     padding: 10px 0;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px); /* Glassmorphism effect on footer */
     font-size: 0.8em;
     position: fixed;
     left: 0;
@@ -51,37 +49,37 @@ footer {
 
 /* Skills Section Styles */
 #Skills {
-    display: flex; /* Use flexbox to lay out skills */
-    justify-content: center; /* Center the skills horizontally */
-    flex-wrap: wrap; /* Allow skills to wrap onto multiple lines if needed */
-    gap: 20px; /* Add space between individual skills */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between skills */
 }
 
 .skill {
-    display: flex; /* Use flexbox for individual skill containers */
-    flex-direction: column; /* Stack icon and text on top of each other */
-    align-items: center; /* Center-align the icon and text horizontally */
-    text-align: center; /* Center-align text */
-    background: rgba(255, 255, 255, 0.1); /* Glass effect for skill */
-    padding: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.skill:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .skill i {
-    font-size: 2em; /* Adjust the size of the icon */
-    color: #ffcc00; /* Gold color for the icons */
-    margin-bottom: 5px;
+    font-size: 2em;
+    margin-bottom: 5px; /* Space between icon and text */
 }
 
+/* Assign individual colors to each skill icon */
+.fa-python { color: #3572A5; }
+.fa-database { color: #f0db4f; }
+.fa-chart-line { color: #c38d9e; }
+.fa-js { color: #f0db4f; }
+.fa-html5 { color: #e34c26; }
+.fa-css3-alt { color: #264de4; }
+.fa-aws { color: #FF9900; }
+.fa-github { color: #333; }
+
 .skill p {
-    color: #ffffff; /* Text color */
-    font-size: 0.8em; /* Smaller font size for the label */
+    color: #ffffff;
+    font-size: 0.8em;
 }
 
 /* Project Section Styles */
@@ -98,14 +96,14 @@ footer {
     border: 2px solid transparent;
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: rgba(255, 255, 255, 0.1); /* Glass effect for project frames */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
 }
 
 .project-frame:hover, .project-frame.active {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-    border-color: #4DB8FF; /* Soft blue highlight color */
+    border-color: #4CAF50; /* Highlight color, replaced green with a softer shade */
 }
 
 #project-description-container {
@@ -122,13 +120,46 @@ footer {
     margin-bottom: 10px;
 }
 
+/* Learn More Button Styles */
 #learn-more {
-    display: block;
-    margin-top: 10px;
-    color: #00ff00;
-    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #learn-more:hover {
-    color: #ff00ff;
+    background-color: #367c39; /* Darker shade of green for hover effect */
+    transform: translateY(-2px); /* Slight lift when hovered */
+}
+
+#learn-more:active {
+    transform: translateY(1px); /* Pressed effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body, header, section {
+        padding: 20px;
+    }
+
+    #Skills, #project-container {
+        flex-direction: column;
+    }
+
+    .project-frame, .skill {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    header, section {
+        margin: 10px auto;
+    }
 }
