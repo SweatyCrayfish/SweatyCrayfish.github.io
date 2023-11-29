@@ -115,6 +115,7 @@ footer {
     border: 2px solid transparent;
     border-radius: 10px;
     text-align: center;
+    color: #333;
     transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
 }
