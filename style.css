@@ -55,28 +55,32 @@ footer {
     gap: 20px; /* Space between skills */
 }
 
-
+/* Additional styles for .skill to have a border to show highlight on hover/active */
 .skill {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for transform and shadow */
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s, background-color 0.3s; /* Smooth transition for transform and shadow */
     padding: 10px;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
+    border: 2px solid transparent;
     background: rgba(255, 255, 255, 0.1); /* Slight transparency for glass effect */
 }
 
-.skill:hover {
+/* Skill Hover and Active Styles */
+.skill:hover, .skill.active {
     transform: scale(1.05); /* Slightly enlarge on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Shadow effect for depth */
+    border-color: #d1b23e; /* Highlight color, similar to project-frame hover */
+    background: rgba(240, 219, 79, 0.4); /* Yellow background similar to learn-more hover */
 }
 
 .skill:active {
     transform: scale(0.95); /* Slight shrink effect on click */
+    background-color: rgba(240, 219, 79, 0.6); /* Slightly more intense yellow for active state */
 }
-
 .skill i {
     font-size: 2em;
     margin-bottom: 5px; /* Space between icon and text */
