@@ -8,9 +8,14 @@ body, h1, h2, p {
 }
 
 body {
-    background-image: url('https://SweatyCrayfish.github.io/images/back.mp4');
+    background: url('https://SweatyCrayfish.github.io/images/back.webm') no-repeat center center fixed;
     background-size: cover;
-    background-attachment: fixed;
+}
+
+/* Additional styles to ensure proper rendering */
+header, section {
+    position: relative; /* Ensure z-index works properly */
+    z-index: 1; /* Ensure sections appear above background */
 }
 
 header, section {
