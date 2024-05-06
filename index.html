@@ -102,6 +102,14 @@
     // Add other project links here
         };
 
+        // Ensure the video can play, if not, log an error or display a message
+        var video = document.getElementById('background-video');
+        video.onerror = function() {
+            console.error('Video failed to load. Check the video URL and browser support.');
+            // Optionally, switch to a fallback background:
+            document.body.style.backgroundImage = "url('https://example.com/path-to-fallback-image.jpg')";
+        };
+
         const projectFrames = document.querySelectorAll('.project-frame');
         const projectDescriptionElement = document.getElementById('project-description');
         const learnMoreLink = document.getElementById('learn-more');
