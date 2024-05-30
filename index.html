@@ -80,64 +80,78 @@
         <p>© 2023 Viktor Veselov</p>
     </footer>
     <script>
-        const projectDescriptions = {
-            'RTST': '"Rtst" is a Python package for comprehensive speech processing. It integrates speech recognition, language detection, translation, and text-to-speech functionalities into a single, easy-to-use function.',
-            'Simple Deployment': 'This project is a chatbot interface that integrates the Hugging Face Transformers library with a Flask backend. It serves a frontend built with HTML, CSS, and JavaScript to interact with the user. The user can input text, which is then processed by the Flask backend and fed into a pre-trained language model. The model-generated text is then sent back to the frontend and displayed.',
-            'Ubuntu Llama-2-7B': 'Building dialogue systems, where a human can have a natural-feeling conversation with a virtual agent, is a challenging task in Natural Language Processing and the focus of much ongoing research. Some of the challenges include linking references to the same entity over time, tracking what has happened in the conversation previously, and generating appropriate responses. This paper delves into our experiment in building such a virtual agent. We scrutinized various models such as CodeLLaMa, OPT, FlanT5, and Llama2. We outline the rationale behind our choice of Llama2-chat-instruct and how the model stands out due to its high-quality, instruction-tuned capabilities, and inherent ability for summarizing text. To further augment the quality of inferences drawn by the model, we implement a complete fine-tuning approach. Furthermore, we will explore Parameter Efficient Fine-Tuning (PEFT), demonstrating how it reduces memory and time resource requirements while maintaining model performance. Finally, we will assess these results using ROUGE metrics - a popular choice for evaluating models - and deploy the model to Hugging Face for serving.',
-            'Web-Scraping-NLP': 'Designed to extract text from video. Extract question description for videos if it does exist, including a time stamps',
-            'Cyber-Security': 'Test for most cybersecurity vulnerabilities before software release.',
-            'Real-world-model-test': 'We use the CRAFT test set, which contains about 1.2 million raw characters, for benchmarking the syntactic analysis pipeline, and the test split of the JNLPBA NER dataset, which contains about 101,000 tokens, for benchmarking the NER task.',
-            'Google-Apps': 'This project was created to increase the quality of app development and decrease the cost of app development by increasing the success rate of an app during its execution.'
-        // Add other project descriptions here
+        // Project descriptions and links as a single JavaScript object
+        const projects = {
+            'RTST': {
+                description: '"Rtst" is a Python package for comprehensive speech processing. It integrates speech recognition, language detection, translation, and text-to-speech functionalities into a single, easy-to-use function.',
+                link: 'https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst'
+            },
+            'Simple Deployment': {
+                description: 'This project is a chatbot interface that integrates the Hugging Face Transformers library with a Flask backend. It serves a frontend built with HTML, CSS, and JavaScript to interact with the user. The user can input text, which is then processed by the Flask backend and fed into a pre-trained language model. The model-generated text is then sent back to the frontend and displayed.',
+                link: 'https://github.com/SweatyCrayfish/simple-deployment/tree/main'
+            },
+            'Ubuntu Llama-2-7B': {
+                description: 'Building dialogue systems, where a human can have a natural-feeling conversation with a virtual agent, is a challenging task in Natural Language Processing and the focus of much ongoing research. Some of the challenges include linking references to the same entity over time, tracking what has happened in the conversation previously, and generating appropriate responses. This paper delves into our experiment in building such a virtual agent. We scrutinized various models such as CodeLLaMa, OPT, FlanT5, and Llama2. We outline the rationale behind our choice of Llama2-chat-instruct and how the model stands out due to its high-quality, instruction-tuned capabilities, and inherent ability for summarizing text. To further augment the quality of inferences drawn by the model, we implement a complete fine-tuning approach. Furthermore, we will explore Parameter Efficient Fine-Tuning (PEFT), demonstrating how it reduces memory and time resource requirements while maintaining model performance. Finally, we will assess these results using ROUGE metrics - a popular choice for evaluating models - and deploy the model to Hugging Face for serving.',
+                link: 'https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main'
+            },
+            'Web-Scraping-NLP': {
+                description: 'Designed to extract text from video. Extract question description for videos if it does exist, including a time stamps',
+                link: 'https://github.com/SweatyCrayfish/Web-Scraping-NLP'
+            },
+            'Cyber-Security': {
+                description: 'Test for most cybersecurity vulnerabilities before software release.',
+                link: 'https://github.com/SweatyCrayfish/Cyber-Security'
+            },
+            'Real-world-model-test': {
+                description: 'We use the CRAFT test set, which contains about 1.2 million raw characters, for benchmarking the syntactic analysis pipeline, and the test split of the JNLPBA NER dataset, which contains about 101,000 tokens, for benchmarking the NER task.',
+                link: 'https://github.com/SweatyCrayfish/Real-world-model-test'
+            },
+            'Google-Apps': {
+                description: 'This project was created to increase the quality of app development and decrease the cost of app development by increasing the success rate of an app during its execution.',
+                link: 'https://github.com/SweatyCrayfish/Google-Apps'
+            }
         };
 
-        const projectLinks = {
-            'RTST': 'https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst',
-            'Simple Deployment': 'https://github.com/SweatyCrayfish/simple-deployment/tree/main',
-            'Ubuntu Llama-2-7B': 'https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main',
-            'Web-Scraping-NLP': 'https://github.com/SweatyCrayfish/Web-Scraping-NLP',
-            'Cyber-Security': 'https://github.com/SweatyCrayfish/Cyber-Security',
-            'Real-world-model-test': 'https://github.com/SweatyCrayfish/Real-world-model-test',
-            'Google-Apps': 'https://github.com/SweatyCrayfish/Google-Apps'
-    // Add other project links here
-        };
-
-        // Ensure the video can play, if not, log an error or display a message
+        // Get the video element
         var video = document.getElementById('background-video');
+
+        // Handle video load error
         video.onerror = function() {
             console.error('Video failed to load. Check the video URL and browser support.');
             // Optionally, switch to a fallback background:
             document.body.style.backgroundImage = "url('https://example.com/path-to-fallback-image.jpg')";
         };
 
+        // Get all project frames
         const projectFrames = document.querySelectorAll('.project-frame');
+
+        // Get the project description element
         const projectDescriptionElement = document.getElementById('project-description');
+
+        // Get the learn more link
         const learnMoreLink = document.getElementById('learn-more');
 
+        // Add event listeners to project frames
         projectFrames.forEach(frame => {
             frame.addEventListener('click', () => {
-        // Retrieve the project name from the data attribute
+                // Retrieve the project name from the data attribute
                 const projectName = frame.getAttribute('data-project');
 
-        // Update the active state for project frames
+                // Update the project description and learn more link
+                projectDescriptionElement.textContent = projects[projectName].description;
+                learnMoreLink.href = projects[projectName].link;
+
+                // Add active class to the current project frame and description container
                 projectFrames.forEach(f => f.classList.remove('active'));
                 frame.classList.add('active');
-
-        // Update the project description and link
-                projectDescriptionElement.textContent = projectDescriptions[projectName];
-                learnMoreLink.href = projectLinks[projectName];
-
-        // Make the description container visible
-                const descriptionContainer = document.getElementById('project-description-container');
-                descriptionContainer.classList.add('active');
+                document.getElementById('project-description-container').classList.add('active');
             });
         });
 
-// Initialize with the first project as active (optional)
+        // Simulate a click on the first project frame
         if (projectFrames.length > 0) {
             projectFrames[0].click();
         }
-
     </script>
 </body>
 </html>
