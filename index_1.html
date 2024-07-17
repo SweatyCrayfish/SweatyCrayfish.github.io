@@ -2,62 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio</title>
+    <title>Viktor's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- Python icon<video autoplay muted loop id="background-video" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -100;">
-        <source src="https://SweatyCrayfish.github.io/images/back.webm" type="video/webm">
-        Your browser does not support HTML5 video.
-    </video>-->
-    
-    <header>
-        <h1>Hello, my name is Viktor, an AI Engineer focused on developing sentient artificial intelligence.</h1>
+    <header class="navbar">
+        <div class="logo">Viktor's Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="contact-button">
+            <a href="#contact">Contact Me</a>
+        </div>
     </header>
-    <section id="summary">
+
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Hello, I'm Viktor, an AI Engineer focused on developing sentient artificial intelligence.</h1>
+            <p>Welcome to my portfolio. Discover my projects and skills in AI and software development.</p>
+            <a href="#summary" class="hero-button">Discover More</a>
+        </div>
+        <div class="background-animation">
+            <div class="circle" style="top: 10%; left: 10%;"></div>
+            <div class="circle" style="top: 30%; left: 70%;"></div>
+            <div class="circle" style="top: 50%; left: 20%;"></div>
+            <div class="circle" style="top: 70%; left: 60%;"></div>
+            <div class="circle" style="top: 90%; left: 40%;"></div>
+        </div>
+    </section>
+
+    <section id="summary" class="content-section">
         <h2>Summary</h2>
-        <p>Welcome to this portfolio. A little bit about myself: I am a motivated AI Engineer, and as you have already seen, one of my goals is to become one of the best experts in the AI field. Today, I have written multiple Python libraries that are fully functional software applications. One of my main areas of expertise is Generative AI. Due to my high capacity for critical thinking, I get involved in many key projects that allow me to showcase my expertise. One of them is the ability to not only find but also demonstrate the value of each model.</p>
+        <p>I am a motivated AI Engineer aiming to become one of the best experts in the AI field. I have written multiple Python libraries that are fully functional software applications, with a focus on Generative AI. My critical thinking skills allow me to participate in key projects where I can showcase my expertise, including demonstrating the value of each model.</p>
     </section>
-    <section id="Skills">
+
+    <section id="skills" class="content-section">
         <h2>Skills</h2>
-        <div class="skill">
-            <i class="fab fa-python"></i> <!-- Python icon -->
-            <p>Python</p>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <p>Python</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <p>SQL</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-chart-line"></i>
+                <p>R</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-js"></i>
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-html5"></i>
+                <p>HTML</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-css3-alt"></i>
+                <p>CSS</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-aws"></i>
+                <p>AWS</p>
+            </div>
+            <div class="skill">
+                <i class="fab fa-github"></i>
+                <p>GitHub</p>
+            </div>
         </div>
-        <div class="skill">
-            <i class="fab fa-database"></i> <!-- SQL icon -->
-            <p>SQL</p>
-        </div>
-        <div class="skill">
-            <i class="fas fa-chart-line"></i> <!-- R icon -->
-            <p>R</p>
-        </div>
-        <div class="skill">
-            <i class="fab fa-js"></i> <!-- JavaScript icon -->
-            <p>JavaScript</p>
-        </div>
-        <div class="skill">
-            <i class="fab fa-html5"></i> <!-- HTML icon -->
-            <p>HTML</p>
-        </div>
-        <div class="skill">
-            <i class="fab fa-css3-alt"></i> <!-- CSS icon -->
-            <p>CSS</p>
-        </div>
-        <div class="skill">
-            <i class="fab fa-aws"></i> <!-- AWS icon -->
-            <p>AWS</p>
-        </div>
-        <div class="skill">
-            <i class="fab fa-github"></i> <!-- GitHub icon -->
-            <p>GitHub</p>
-        </div>
-        <!-- <p>Python, SQL, R, JavaScript, HTML, CSS, AWS, GitHub...</p> -->
     </section>
-    
-    <!-- Projects Section -->
-    <section id="projects">
+
+    <section id="projects" class="content-section">
         <h2>Projects</h2>
         <p>Click on a project to see more details:</p>
         <div id="project-container">
@@ -68,7 +89,6 @@
             <div class="project-frame" data-project="Cyber-Security">Cyber-Security Test</div>
             <div class="project-frame" data-project="Real-world-model-test">Test LLM For Business Use</div>
             <div class="project-frame" data-project="Google-Apps">Increase Google Apps Quality</div>
-            <!-- ... more projects ... -->
         </div>
         <div id="project-description-container">
             <div id="project-description"></div>
@@ -76,68 +96,15 @@
         </div>
     </section>
 
+    <section id="contact" class="content-section">
+        <h2>Contact</h2>
+        <p>You can contact me at <a href="mailto:vveselov@sandiego.edu">viktor@example.com</a></p>
+    </section>
+
     <footer>
         <p>© 2023 Viktor Veselov</p>
     </footer>
-    <script>
-        const projectDescriptions = {
-            'RTST': '"Rtst" is a Python package for comprehensive speech processing. It integrates speech recognition, language detection, translation, and text-to-speech functionalities into a single, easy-to-use function.',
-            'Simple Deployment': 'This project is a chatbot interface that integrates the Hugging Face Transformers library with a Flask backend. It serves a frontend built with HTML, CSS, and JavaScript to interact with the user. The user can input text, which is then processed by the Flask backend and fed into a pre-trained language model. The model-generated text is then sent back to the frontend and displayed.',
-            'Ubuntu Llama-2-7B': 'Building dialogue systems, where a human can have a natural-feeling conversation with a virtual agent, is a challenging task in Natural Language Processing and the focus of much ongoing research. Some of the challenges include linking references to the same entity over time, tracking what has happened in the conversation previously, and generating appropriate responses. This paper delves into our experiment in building such a virtual agent. We scrutinized various models such as CodeLLaMa, OPT, FlanT5, and Llama2. We outline the rationale behind our choice of Llama2-chat-instruct and how the model stands out due to its high-quality, instruction-tuned capabilities, and inherent ability for summarizing text. To further augment the quality of inferences drawn by the model, we implement a complete fine-tuning approach. Furthermore, we will explore Parameter Efficient Fine-Tuning (PEFT), demonstrating how it reduces memory and time resource requirements while maintaining model performance. Finally, we will assess these results using ROUGE metrics - a popular choice for evaluating models - and deploy the model to Hugging Face for serving.',
-            'Web-Scraping-NLP': 'Designed to extract text from video. Extract question description for videos if it does exist, including a time stamps',
-            'Cyber-Security': 'Test for most cybersecurity vulnerabilities before software release.',
-            'Real-world-model-test': 'We use the CRAFT test set, which contains about 1.2 million raw characters, for benchmarking the syntactic analysis pipeline, and the test split of the JNLPBA NER dataset, which contains about 101,000 tokens, for benchmarking the NER task.',
-            'Google-Apps': 'This project was created to increase the quality of app development and decrease the cost of app development by increasing the success rate of an app during its execution.'
-        // Add other project descriptions here
-        };
 
-        const projectLinks = {
-            'RTST': 'https://github.com/SweatyCrayfish/Real-Time-Speech-Translator-rtst',
-            'Simple Deployment': 'https://github.com/SweatyCrayfish/simple-deployment/tree/main',
-            'Ubuntu Llama-2-7B': 'https://github.com/SweatyCrayfish/Ubuntu-Lllama-2/tree/main',
-            'Web-Scraping-NLP': 'https://github.com/SweatyCrayfish/Web-Scraping-NLP',
-            'Cyber-Security': 'https://github.com/SweatyCrayfish/Cyber-Security',
-            'Real-world-model-test': 'https://github.com/SweatyCrayfish/Real-world-model-test',
-            'Google-Apps': 'https://github.com/SweatyCrayfish/Google-Apps'
-    // Add other project links here
-        };
-
-        // Ensure the video can play, if not, log an error or display a message
-        var video = document.getElementById('background-video');
-        video.onerror = function() {
-            console.error('Video failed to load. Check the video URL and browser support.');
-            // Optionally, switch to a fallback background:
-            document.body.style.backgroundImage = "url('https://example.com/path-to-fallback-image.jpg')";
-        };
-
-        const projectFrames = document.querySelectorAll('.project-frame');
-        const projectDescriptionElement = document.getElementById('project-description');
-        const learnMoreLink = document.getElementById('learn-more');
-
-        projectFrames.forEach(frame => {
-            frame.addEventListener('click', () => {
-        // Retrieve the project name from the data attribute
-                const projectName = frame.getAttribute('data-project');
-
-        // Update the active state for project frames
-                projectFrames.forEach(f => f.classList.remove('active'));
-                frame.classList.add('active');
-
-        // Update the project description and link
-                projectDescriptionElement.textContent = projectDescriptions[projectName];
-                learnMoreLink.href = projectLinks[projectName];
-
-        // Make the description container visible
-                const descriptionContainer = document.getElementById('project-description-container');
-                descriptionContainer.classList.add('active');
-            });
-        });
-
-// Initialize with the first project as active (optional)
-        if (projectFrames.length > 0) {
-            projectFrames[0].click();
-        }
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
